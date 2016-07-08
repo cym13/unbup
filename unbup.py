@@ -2,6 +2,7 @@
 
 import os
 import sys
+import shutil
 import subprocess
 
 HELP="""Unbup: extract BUP McAfee quarantine files
@@ -29,7 +30,7 @@ def main():
         filename = os.path.basename(filepath)
         os.mkdir(filename + "_unbup")
         os.chdir(filename + "_unbup")
-        os.rename(filepath, filename)
+        shutil.copyfile(filepath, filename)
 
         try:
             p = subprocess.Popen(["7z", "x", filename])
@@ -43,6 +44,7 @@ def main():
                     fout.write(bytes(map(lambda x: x ^ 0x6A, fin.read())))
             os.rename(each + ".tmp", each)
 
+        os.remove(filename)
         os.chdir("..")
 
 if __name__ == "__main__":
