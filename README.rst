@@ -24,8 +24,7 @@ Dependencies
 License
 =======
 
-The code is under the WTFPL (see http://www.wtfpl.net/) mainly because I
-wanted to stay at 42 lines of code and the GPLv3 was too long.
+The code is under the WTFPL (see http://www.wtfpl.net/).
 
 Contact
 =======
